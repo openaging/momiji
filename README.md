@@ -5,7 +5,7 @@ docker compose -f ./Docker/docker-compose.yaml up --build -d
 ```
 
 ```
-docker exec -it tkyc bash
+docker exec -it momiji bash
 ```
 
 # アップロード方法
