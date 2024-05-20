@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "tkyc"
+name = "momiji"
 version = "0.1.4"
 description = "For verification of library development"
 authors = ["openaging <open.aging.info@gmail.com>"]
