@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: ./Docker/Dockerfile
+    volumes:
+      - ../:/app
+    command: bash
+    container_name: tkyc
+    tty: true
