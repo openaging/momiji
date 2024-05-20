@@ -7,5 +7,5 @@ services:
     volumes:
       - ../:/app
     command: bash
-    container_name: tkyc
+    container_name: momiji
     tty: true
