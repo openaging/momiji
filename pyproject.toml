@@ -23,3 +23,9 @@ flake8 = "^7.0"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+line-length = 80
+exclude = [__pycache__, docs/_build/]
+ignore = ["E203"]
