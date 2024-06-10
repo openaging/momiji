@@ -31,4 +31,4 @@ jobs:
           github.event.pull_request.head.ref != 'staging' &&
           github.event.pull_request.head.ref != 'base'
         run: |
-          git push origin --delete ${{ steps.get_branch.outputs.branch }}
+          git push origin --delete ${{ github.head_ref }}
