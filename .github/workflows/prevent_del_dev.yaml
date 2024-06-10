@@ -1,0 +1,13 @@
+name: Prevent Dev Branch Deletion
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  prevent_deletion:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'dev'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel auto-delete
+        run: echo "Merged pull request to dev branch. Preventing auto-delete."
