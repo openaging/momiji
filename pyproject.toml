@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "momiji"
+version = "0.1.1"
+description = "For verification of library development"
+authors = ["openaging <open.aging.info@gmail.com>"]
+license = "BSD-2-Clause"
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+sphinx = "^7.2"
+pytest = "^8.1"
+ruff = "^0.4.8"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+line-length = 80
+exclude = [__pycache__, docs/_build/]
+ignore = ["E203"]
