@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "momiji"
-version = "0.1.0"
+version = "0.1.1"
 description = "For verification of library development"
 authors = ["openaging <open.aging.info@gmail.com>"]
 license = "BSD-2-Clause"
@@ -17,7 +17,7 @@ torch = "^2.1.1"
 [tool.poetry.group.dev.dependencies]
 sphinx = "^7.2"
 pytest = "^8.1"
-flake8 = "^7.0"
+ruff = "^0.4.8"
 
 
 [build-system]
