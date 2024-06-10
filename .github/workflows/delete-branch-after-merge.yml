@@ -23,6 +23,7 @@ jobs:
           github.event.pull_request.base.ref == 'staging' ||
           github.event.pull_request.base.ref == 'base'
         run: echo "Branch is protected, not deleting."
+
       - name: Delete branch
         if: |
           github.event.pull_request.base.ref != 'main' &&
