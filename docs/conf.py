@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'momiji'
-copyright = '2024, tkyc'
-author = 'tkyc'
+copyright = '2024, openaging'
+author = 'openaging <open.aging.info@gmail.com>'
 release = '1.0.0'
 
 # -- General configuration ---------------------------------------------------
