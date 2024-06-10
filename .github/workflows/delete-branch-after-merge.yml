@@ -18,17 +18,16 @@ jobs:
 
       - name: Delete branch
         if: |
-          github.event.pull_request.base.ref == 'main' ||
-          github.event.pull_request.base.ref == 'dev' ||
-          github.event.pull_request.base.ref == 'staging' ||
-          github.event.pull_request.base.ref == 'base'
+          steps.get_branch.outputs.branch == 'main' ||
+          steps.get_branch.outputs.branch == 'dev' ||
+          steps.get_branch.outputs.branch == 'staging' ||
+          steps.get_branch.outputs.branch == 'base'
         run: echo "Branch is protected, not deleting."
-
       - name: Delete branch
         if: |
-          github.event.pull_request.base.ref != 'main' &&
-          github.event.pull_request.base.ref != 'dev' &&
-          github.event.pull_request.base.ref != 'staging' &&
-          github.event.pull_request.base.ref != 'base'
+          steps.get_branch.outputs.branch != 'main' &&
+          steps.get_branch.outputs.branch != 'dev' &&
+          steps.get_branch.outputs.branch != 'staging' &&
+          steps.get_branch.outputs.branch != 'base'
         run: |
           git push origin --delete ${{ steps.get_branch.outputs.branch }}
