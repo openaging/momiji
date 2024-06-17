@@ -1,16 +1,32 @@
 momiji package
 ==============
 
-Subpackages
------------
+Subpackages and Submodules
+--------------------------
 
-.. toctree::
-   :maxdepth: 4
+momiji.models module
+------------------------
 
-   momiji.preprocess
+.. automodule:: momiji.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
-Submodules
-----------
+
+momiji.predict module
+------------------------
+.. automodule:: momiji.predict
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+momiji.preprocess module
+------------------------
+.. automodule:: momiji.preprocess
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 momiji.my\_module module
 ------------------------
@@ -19,6 +35,7 @@ momiji.my\_module module
    :members:
    :undoc-members:
    :show-inheritance:
+
 
 Module contents
 ---------------
