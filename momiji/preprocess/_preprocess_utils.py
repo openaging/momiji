@@ -4,6 +4,26 @@ import pandas as pd
 from sklearn.impute import KNNImputer, SimpleImputer
 
 
+def my_func(x):
+    """Converts a Numpy array with string elements into an integer Numpy array.
+
+    Args:
+        A Numpy array with string elements (e.g., my_array)
+
+    Returns:
+        A Numpy array with int64 elements
+
+    Example:
+        >>> import mypackageabc as my
+        >>> my.my_func(my.my_array)
+
+    Note:
+        This is very simple function only for the demonstration
+
+    """
+    return x.astype(np.int64)
+
+
 def create_anndata_object(df: pd.DataFrame) -> anndata.AnnData:
     """
     Creates an AnnData object from a pandas DataFrame, removing columns that contain only missing values.
