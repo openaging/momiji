@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 import torch
 import torch.nn as nn
 
@@ -23,10 +25,8 @@ class MyModel(nn.Module):
 class ATACmodel(nn.Module):
     def __init__(self, in_dim, out_dim):
         """
-        Parameters
-        ----------
-        input_dim : int
-            Number of input features.
+        Args:
+        input_dim (int): Number of input features.
         """
         super(ATACmodel, self).__init__()
 
@@ -34,11 +34,6 @@ class ATACmodel(nn.Module):
 
     def forward(self, x):
         return self.fc(x)
-
-
-from abc import ABC, abstractmethod
-
-import torch.nn as nn
 
 
 class pyagingModel(nn.Module, ABC):
