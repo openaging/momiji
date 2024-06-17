@@ -36,12 +36,19 @@ class TestPredictor(unittest.TestCase):
         )
     """
 
-    def test_forward(self):
+    def test_forward_01(self):
         predictor = Predictor(self.adata, self.model)
         predictions = predictor.forward(self.adata)
 
         # Assert that the predictions have the correct shape
-        self.assertEqual(predictions.shape, torch.Size([self.adata.n_obs, 1]))
+        assert predictions.shape == torch.Size([self.adata.n_obs, 1])
+
+    def test_forward_02(self):
+        predictor = Predictor(self.adata, self.model)
+        predictions = predictor.forward(self.adata)
+
+        # Assert that the predictions have the correct shape
+        assert predictions.shape != torch.Size([self.adata.n_obs])
 
 
 if __name__ == "__main__":
