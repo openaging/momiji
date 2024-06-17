@@ -2,6 +2,24 @@ import torch
 import torch.nn as nn
 
 
+class MyModel(nn.Module):
+    def __init__(self, in_dim, out_dim, clock_name, features):
+        """
+        Parameters
+        ----------
+        input_dim : int
+            Number of input features.
+        """
+        super(MyModel, self).__init__()
+
+        self.linear = nn.Linear(in_dim, out_dim)
+        self.features = features
+        self.metadata = {"clock_name": clock_name}
+
+    def forward(self, x):
+        return self.linear(x)
+
+
 class ATACmodel(nn.Module):
     def __init__(self, in_dim, out_dim):
         """
