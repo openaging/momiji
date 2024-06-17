@@ -142,3 +142,7 @@ class OcampoATAC2(pyagingModel):
 
     def postprocess(self, x):
         return x
+
+
+
+__all__ = ["MyModel", "ATACmodel", "pyagingModel", "OcampoATAC1", "OcampoATAC2"]
