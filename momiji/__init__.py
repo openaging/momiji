@@ -1,3 +1,6 @@
-from . import preprocess
+# momiji/__init__.py
 
-__version__ = '0.1.0'
+from .my_module import *  # もしくは、必要なモジュールのみをインポート
+from .preprocess import *
+from .models import *
+from .predict import *
