@@ -25,7 +25,7 @@ class Predictor(nn.Module):
     def check_features_in_adata(
         self,
         adata: anndata.AnnData,
-        model,
+        model: nn.Module,
     ) -> anndata.AnnData:
 
         # Preallocate the data matrix
@@ -49,20 +49,22 @@ class Predictor(nn.Module):
         ]
 
         # Handle missing features
+        """
         if model.reference_values is not None:
             X_model[:, missing_features_mask] = np.array(model.reference_values)[
                 missing_features_mask
             ]
         else:
             X_model[:, missing_features_mask] = 0
+        """
 
         # Calculate missing features statistics
         num_missing_features = len(missing_features)
         percent_missing = 100 * num_missing_features / len(model.features)
 
         # Add missing features and percent missing values to the clock
-        adata.uns[f"{model.metadata['clock_name']}_percent_na"] = percent_missing
-        adata.uns[f"{model.metadata['clock_name']}_missing_features"] = missing_features
+        # adata.uns[f"{model.metadata['clock_name']}_percent_na"] = percent_missing
+        # adata.uns[f"{model.metadata['clock_name']}_missing_features"] = missing_features
 
         # Add matrix to obsm
         adata.obsm[f"X_{model.metadata['clock_name']}"] = X_model
@@ -77,7 +79,10 @@ class Predictor(nn.Module):
         predictions = []
         with torch.no_grad():
             for batch in dataloader:
-                inputs = batch.obsm[f"X_{self.model.metadata['clock_name']}"]
+                inputs = batch.obsm[f"X_{self.model.metadata['clock_name']}"].to(
+                    torch.float32
+                )
+
                 batch_pred = self.model(inputs)
                 predictions.append(batch_pred)
         # Concatenate all batch predictions
