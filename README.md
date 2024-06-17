@@ -45,15 +45,17 @@ Publish に必要な情報を入力する．
 ```
 poetry config repositories.testpypi https://test.pypi.org/legacy/
 poetry config pypi-token.testpypi {Test PyPIのAPI Token}
-```
-
-最後に
-
-```
 poetry publish -r testpypi
 ```
 
 とするとこで，Test PyPI にパッケージをアップロードできる．
+
+```
+poetry config pypi-token.pypi {PyPIのAPI Token}
+poetry publish
+```
+
+とするとこで，PyPI にパッケージをアップロードできる．
 
 # このリポジトリのブランチ
 
