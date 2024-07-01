@@ -27,4 +27,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.ruff]
 line-length = 80
 exclude = ["__pycache__", "docs/_build/"]
+
+[tool.ruff.lint]
 ignore = ["E203"]
+per-file-ignores = { "__init__.py" = ["F403"] }
