@@ -27,6 +27,8 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.autosummary',
+    'nbsphinx',
+    'sphinx.ext.mathjax',
 ]
 
 templates_path = ['_templates']
@@ -53,3 +55,7 @@ html_static_path = ['_static']
 
 # Add this line to set the favicon
 html_favicon = '_static/momiji-favicon.ico'
+
+# for notebook
+nbsphinx_allow_errors = True
+nbsphinx_execute = 'never'
