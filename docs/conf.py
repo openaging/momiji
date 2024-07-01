@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.abspath('../momiji'))
 project = 'momiji'
 copyright = '2024, openaging'
 author = 'openaging <open.aging.info@gmail.com>'
-release = '0.1.1'
+release = '0.1.2'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -27,6 +27,8 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.autosummary',
+    'nbsphinx',
+    'sphinx.ext.mathjax',
 ]
 
 templates_path = ['_templates']
@@ -53,3 +55,7 @@ html_static_path = ['_static']
 
 # Add this line to set the favicon
 html_favicon = '_static/momiji-favicon.ico'
+
+# for notebook
+nbsphinx_allow_errors = True
+nbsphinx_execute = 'never'
