@@ -6,7 +6,6 @@ from momiji.preprocess._preprocess import df_to_adata
 
 
 def test_df_to_adata():
-    # Create a dummy DataFrame
     df = pd.read_pickle("tests/GSE193140.pkl")
 
     # Convert the DataFrame to an anndata.AnnData object
