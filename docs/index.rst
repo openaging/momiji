@@ -7,6 +7,14 @@ Welcome to momiji's documentation!
 
    momiji
 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Tutorials
+
+   tutorials/tutorial_ATAC-seq
+
+
 Indices and tables
 ==================
 
