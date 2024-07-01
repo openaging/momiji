@@ -11,7 +11,7 @@ def test_df_to_adata():
             "gene2": [6, 7, 8, 9, 10],
             "gene3": [11, 12, 13, 14, 15],
         },
-        index_names=[
+        index=[
             "sample_1",
             "sample_2",
             "sample_3",
