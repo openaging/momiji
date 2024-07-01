@@ -1,7 +1,6 @@
 import pandas as pd
 
 from momiji.preprocess._preprocess import df_to_adata
-from momiji.preprocess._preprocess_utils import *
 
 
 def test_df_to_adata():
