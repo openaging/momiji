@@ -4,6 +4,7 @@ version = "0.1.2"
 description = "For verification of library development"
 authors = ["openaging <open.aging.info@gmail.com>"]
 license = "BSD-2-Clause"
+readme = "README.md" 
 
 [tool.poetry.dependencies]
 python = "^3.10"
