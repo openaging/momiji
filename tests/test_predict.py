@@ -1,28 +1,26 @@
-import tempfile
 from urllib.request import urlopen
 
 import pandas as pd
 import pytest
 import torch
 
+from momiji.models.model import MyModel
 from momiji.predict.predict import Predictor
 from momiji.preprocess._preprocess import df_to_adata
-from momiji.models.model import MyModel
 
 
 @pytest.fixture(scope="module")
 def setup():
-    with tempfile.TemporaryDirectory() as temp_dir:
-        # Create a dummy model and anndata.AnnData object for testing
-        clock_name = "OcampoATAC1"
-       
-        # Create a dummy DataFrame
-        df = pd.read_pickle("tests/GSE193140.pkl")
-        adata = df_to_adata(df)
-        
-        features =adata.var.index.values
-        model = MyModel(80400,1,clock_name,features)
-        yield adata, model
+    # Define the clock name
+    clock_name = "OcampoATAC1"
+
+    # Load the data
+    df = pd.read_pickle("tests/GSE193140.pkl")
+    adata = df_to_adata(df)
+
+    features = adata.var.index.values
+    model = MyModel(80400, 1, clock_name, features)
+    yield adata, model
 
 
 def test_forward_01(setup):
