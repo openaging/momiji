@@ -16,7 +16,9 @@ sys.path.insert(0, os.path.abspath('../momiji'))
 project = 'momiji'
 copyright = '2024, openaging'
 author = 'openaging <open.aging.info@gmail.com>'
-release = '0.1.2'
+
+from momiji import __version__
+release = version = __version__
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
