@@ -1,5 +1,3 @@
-from urllib.request import urlopen
-
 import pandas as pd
 import pytest
 import torch
