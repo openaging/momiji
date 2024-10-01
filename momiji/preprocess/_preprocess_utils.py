@@ -125,3 +125,22 @@ def add_unstructured_data(
         None
     """
     adata.uns["imputer_strategy"] = imputer_strategy
+
+
+def add_metadata_to_anndata(adata: anndata.AnnData, metadata: pd.DataFrame) -> None:
+    """
+    Adds metadata to the AnnData object's observation (obs) attribute.
+
+    Args:
+        adata (anndata.AnnData): The AnnData object to which metadata will be added.
+        metadata (pd.DataFrame): A pandas DataFrame containing metadata to be added.
+
+    Returns:
+        None
+    """
+
+    if metadata is None:
+        return adata
+    
+    metadata = metadata.reindex(adata.obs_names)
+    adata.obs = metadata
