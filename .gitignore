@@ -161,3 +161,6 @@ cython_debug/
 
 poetry.toml
 momiji/predict/Pipfile
+
+# Linux
+.Trash-0/
