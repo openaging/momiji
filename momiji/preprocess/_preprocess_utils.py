@@ -1,7 +1,9 @@
+import os
 import anndata
 import numpy as np
 import pandas as pd
 from sklearn.impute import KNNImputer, SimpleImputer
+from urllib.request import urlretrieve
 
 
 def my_func(x):
@@ -125,3 +127,61 @@ def add_unstructured_data(
         None
     """
     adata.uns["imputer_strategy"] = imputer_strategy
+
+
+def load_ensembl_metadata(dir: str) -> pd.DataFrame:
+    """Load and filter Ensembl genome metadata specific to Homo sapiens.
+
+    This function downloads the Ensembl gene metadata for Homo sapiens from a predefined URL and
+    filters it to include only the genes located on specified chromosomes.
+
+    Args:
+        dir (str):  The directory to deposit the downloaded file.
+
+    Returns:
+        pd.DataFrame:
+            A DataFrame containing filtered gene metadata from Ensembl. Rows correspond to genes, indexed
+            by their Ensembl gene IDs, and columns include various gene attributes.
+    """
+
+    url = "https://pyaging.s3.amazonaws.com/supporting_files/Ensembl-105-EnsDb-for-Homo-sapiens-genes.csv"
+    file_path = os.path.join(dir,url.split("/")['-1'])
+    if not os.path.exists(dir):
+        os.makedirs(dir,exists_ok=True)
+    
+    if not os.path.exists(file_path):
+        urlretrieve(url,file_path)
+
+    # Define chromosomes of interest
+    chromosomes = [
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "2",
+        "20",
+        "21",
+        "22",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "X",
+    ]
+
+    # Read and filter the gene data
+    genes_path = os.path.join(dir, "Ensembl-105-EnsDb-for-Homo-sapiens-genes.csv")
+    genes = pd.read_csv(genes_path)
+    genes = genes[genes["chr"].apply(lambda x: x in chromosomes)]
+    genes.index = genes.gene_id
+    return genes
